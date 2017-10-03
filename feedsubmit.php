@@ -21,3 +21,13 @@ echo "You have successfully added a feed for ", $feedName;
 
 $archiveQuery = "INSERT INTO archive (status, link, dateOfEvent) VALUES ('Inserted', '$feedName', CURTIME())";
 $rows3 = Query($db, $archiveQuery);
+print "<br>";
+print "<br>";
+$selectQuery = "SELECT * FROM archive";
+$rows4 = Query($db, $selectQuery);
+print "Archive:";
+print "<br>";
+foreach ($rows4 as $line) {
+  echo $line['status'], " the feed ",$line['link'], " on ",$line['dateOfEvent'];
+  print "<br>";
+}
