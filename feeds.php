@@ -63,7 +63,29 @@ foreach ($rows as $row) {
 	} else {
 		echo "<div>" . $row['link'] . " not found</div>\n";
 	}
+  ?>
+  <html>
+    <form action="feeddelete.php" method="post">
+    <button name="delete" type="submit" value="<?php echo $row['link']; ?>">Delete</button>
+    </form>
+  </html>
+  <?php
 	echo "</article>\n";
+
 }
+echo "<br>";
+echo "<br>";
+
+?>
+<html>
+     <form action="feedsubmit.php" method="post">
+ New Feed URL:<br>
+ <input type="text" name="feedurl"><br>
+<input type="submit">
+</form>
+   </body>
+
+</html>
+<?php
 
 require("include/footer.php");
